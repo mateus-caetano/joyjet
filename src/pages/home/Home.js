@@ -1,5 +1,5 @@
 import React from "react";
-import { View, FlatList, ScrollView, Text, Image, Dimensions, TouchableOpacity } from "react-native";
+import { View, FlatList, Text, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { SvgXml } from "react-native-svg";
 

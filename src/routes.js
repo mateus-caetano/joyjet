@@ -26,8 +26,6 @@ const joyjetTextIcon = `
 const JoyjetIcon = () => <SvgXml width='140' height='140' xml={joyjetIcon} />
 const JoyjetTextIcon = () => <SvgXml width='102' height='17' xml={joyjetTextIcon} />
 
-const height = Dimensions.get('window').height - StatusBar.currentHeight
-
 function DrawerContent(props) {
     return(
         <DrawerContentScrollView sty={{flex: 1}}>
@@ -41,7 +39,6 @@ function DrawerContent(props) {
                     alignSelf: "flex-start",
                     marginTop: 32,
                     marginLeft: 32,
-                    height
                 }}
             >
                 <DrawerItem
