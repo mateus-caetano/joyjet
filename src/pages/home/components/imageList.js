@@ -6,10 +6,12 @@ import Carousel from './carousel';
 
 export default function Feed(item) {
     const navigation = useNavigation()
+    const category = item.item.item.category
+
     return(
         <>
-            <View style={{backgroundColor: '#4A90E2', height: 33, justifyContent: 'center'}}>
-                <Text style={{marginLeft: 17, color: '#fff', fontWeight: '600'}}>{item.item.item.category}</Text>
+            <View style={{backgroundColor: '#4A90E2', height: 33, justifyContent: 'center', flex: 1}}>
+                <Text style={{marginLeft: 17, color: '#fff', fontWeight: '600'}}>{category}</Text>
             </View>
             <FlatList
                 data={item.item.item.items}
@@ -17,7 +19,11 @@ export default function Feed(item) {
                 renderItem={(item) => {
                     
                     return (
-                        <TouchableOpacity style={{justifyContent: 'center'}} onPress={() => {navigation.navigate('InternalFeed')}} >
+                        <TouchableOpacity style={{justifyContent: 'center'}} onPress={() => {
+                            navigation.navigate('InternalFeed', {
+                                item,
+                                category
+                            })}} >
                             <Carousel item={item} />
                             
                             <View style={{position: 'absolute', bottom: 10, marginLeft: 17, paddingRight: '20%'}}>

@@ -41,7 +41,7 @@ export default function Home() {
     }, [])
 
     return(
-        <View>
+        <View style={{ flex: 1 }}>
             <Header />
             <FlatList
                 data={data}
