@@ -23,17 +23,22 @@ const joyjetTextIcon = `
 </svg>
 `
 
-const JoyjetIcon = () => <SvgXml width='96' height='96' xml={joyjetIcon} />
+const JoyjetIcon = () => <SvgXml width='140' height='140' xml={joyjetIcon} />
 const JoyjetTextIcon = () => <SvgXml width='102' height='17' xml={joyjetTextIcon} />
 
 const height = Dimensions.get('window').height - StatusBar.currentHeight
 
 function DrawerContent(props) {
     return(
-        <DrawerContentScrollView contentContainerStyle={{justifyContent: 'space-between'}}>
+        <DrawerContentScrollView sty={{flex: 1}}>
+            <View style={{ backgroundColor: '#4A90E2', height: 150, marginTop: -4, justifyContent: 'flex-end', }}>
+                <View style={{ paddingLeft: 20, top: 3 }}><JoyjetIcon /></View>
+                <View style={{ position: 'absolute', bottom: 20, paddingLeft: 20 }}><JoyjetTextIcon /></View>
+            </View>
+            
             <View 
                 style={{ 
-                    alignSelf: "flex-end",
+                    alignSelf: "flex-start",
                     marginTop: 32,
                     marginLeft: 32,
                     height
@@ -41,21 +46,18 @@ function DrawerContent(props) {
             >
                 <DrawerItem
                     label='Home'
-                    labelStyle={{ fontSize: 30, color: '#bbb' }}
+                    labelStyle={{ fontSize: 30, color: '#757575' }}
                     onPress={ () => props.navigation.navigate('Home') }
                 />
                 <DrawerItem
                     label='Favorites'
-                    labelStyle={{ fontSize: 30, color: '#bbb' }}
+                    labelStyle={{ fontSize: 30, color: '#757575' }}
                     onPress={ () => props.navigation.navigate('Favorites') }
                 />
 
             </View>
 
-            <View>
-                <View style={{ position: 'absolute', bottom: 50, right: 24 }}><JoyjetIcon /></View>
-                <View style={{ position: 'absolute', bottom: 15, left: 24 }}><JoyjetTextIcon /></View>
-            </View>
+            
         </DrawerContentScrollView>
     )
 }
@@ -63,8 +65,8 @@ function DrawerContent(props) {
 function DrawerNavigation() {
     return (
         <Drawer.Navigator
-            drawerPosition='right'
-            drawerStyle={{ backgroundColor: '#434343' }}
+            drawerPosition='left'
+            drawerStyle={{ backgroundColor: 'rgba(250, 250, 250, 1)' }}
             drawerContent={ props => <DrawerContent {...props} /> }
             initialRouteName='Home'
         >

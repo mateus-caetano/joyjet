@@ -28,11 +28,11 @@ export default function Home() {
     const MenuIcon = () => <SvgXml width="22" height="16" xml={menuIcon} />
 
     const Header = () => (
-        <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', height: 45, backgroundColor: 'rgba(250, 250, 250, 0.9)' }}>
-            <Text style={{color: '#4A90E2', fontWeight: '300'}}>Home</Text>
-            <TouchableOpacity style={{position: 'absolute', right: 15}} onPress={() => navigation.openDrawer()}>
+        <View style={{flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', height: 45, backgroundColor: 'rgba(250, 250, 250, 0.9)' }}>
+            <TouchableOpacity style={{marginHorizontal: 15}} onPress={() => navigation.openDrawer()}>
                 <MenuIcon />
             </TouchableOpacity>
+            <Text style={{color: '#4A90E2', fontWeight: '300', lineHeight: 21}}>Home</Text>
         </View>
     )
 

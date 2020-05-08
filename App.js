@@ -6,7 +6,7 @@ import Routes from "./src/routes";
 export default function App() {
   return (
     <>
-      <StatusBar />
+      <StatusBar backgroundColor='rgba(250, 250, 250, 0.9)' barStyle='dark-content' />
       <Routes />
     </>
   )
