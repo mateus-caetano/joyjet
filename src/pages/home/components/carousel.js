@@ -32,7 +32,7 @@ const imageIcon = `
 `
 
 const width = Math.round(Dimensions.get('window').width)
-const height = width * 0.6
+const height = width * 0.75
 
 export default function Carousel(item) {
     const [ coord, setCoord ] = React.useState([])
