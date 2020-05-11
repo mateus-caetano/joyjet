@@ -5,16 +5,16 @@
 
 -Menu:
 
-![](https://github.com/mateus-caetano/joyjet/blob/README/readme-gifs/menu.gif)
+![](https://github.com/mateus-caetano/joyjet/blob/master/readme-gifs/menu.gif)
 
 - Feed
 
-![](https://github.com/mateus-caetano/joyjet/blob/README/readme-gifs/image-slider.gif)
+![](https://github.com/mateus-caetano/joyjet/blob/master/readme-gifs/image-slider.gif)
 
 - Favorites
 
-![](https://github.com/mateus-caetano/joyjet/blob/README/readme-gifs/favorites.gif)
+![](https://github.com/mateus-caetano/joyjet/blob/master/readme-gifs/favorites.gif)
 
 - Interrnal feed
 
-![](https://github.com/mateus-caetano/joyjet/blob/README/readme-gifs/internal-feed.gif)
+![](https://github.com/mateus-caetano/joyjet/blob/master/readme-gifs/internal-feed.gif)
