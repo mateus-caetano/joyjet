@@ -47,7 +47,7 @@ export default function InternalFeed({ route, navigation }) {
     const category = route.params.category
 
     const width = Dimensions.get('window').width
-    const height = width * 0.6
+    const height = width * 0.75
 
     const [ isFavorite, setIsFavorite ] = React.useState(false)
     const [ isImageLoaded, setIsImageLoaded ] = React.useState(false)
