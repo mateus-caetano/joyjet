@@ -24,6 +24,24 @@ const yellowStar = `
 </svg>
 `
 
+const imageIcon = `
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+<path d="M93,17H7c-1.1,0-2,0.9-2,2v62c0,1.1,0.9,2,2,2h86c1.1,0,2-0.9,2-2V19C95,17.9,94.1,17,93,17z M91,21v22.5l-16-9.3
+	c0,0,0,0-0.1,0c-0.1,0-0.1-0.1-0.2-0.1c-0.1,0-0.1,0-0.2-0.1c-0.1,0-0.1,0-0.2,0c-0.1,0-0.1,0-0.2,0c-0.1,0-0.1,0-0.2,0
+	c-0.1,0-0.1,0-0.2,0c-0.1,0-0.1,0-0.2,0c-0.1,0-0.1,0-0.2,0c-0.1,0-0.1,0-0.2,0.1c-0.1,0-0.1,0.1-0.2,0.1c-0.1,0-0.1,0.1-0.2,0.1
+	c-0.1,0-0.1,0.1-0.2,0.1c0,0,0,0-0.1,0L44.8,59.5L26.1,46.4c0,0-0.1,0-0.1-0.1c-0.1,0-0.1-0.1-0.2-0.1c-0.1,0-0.1-0.1-0.2-0.1
+	c-0.1,0-0.1,0-0.2-0.1c-0.1,0-0.1,0-0.2,0c-0.1,0-0.1,0-0.2,0c-0.1,0-0.1,0-0.2,0c-0.1,0-0.1,0-0.2,0c-0.1,0-0.1,0-0.2,0
+	c-0.1,0-0.1,0-0.2,0c-0.1,0-0.1,0-0.2,0.1c-0.1,0-0.1,0.1-0.2,0.1c-0.1,0-0.1,0.1-0.2,0.1c0,0-0.1,0-0.1,0.1L9,58.7V21H91z M9,79
+	V63.9l16.1-13.4l18.7,13.1c0,0,0,0,0,0c0.1,0.1,0.3,0.2,0.5,0.2c0,0,0.1,0,0.1,0c0.2,0,0.3,0.1,0.5,0.1c0,0,0,0,0,0c0,0,0,0,0,0
+	c0,0,0,0,0,0c0.1,0,0.3,0,0.4,0c0,0,0.1,0,0.1,0c0.1,0,0.2-0.1,0.3-0.1c0,0,0.1,0,0.1-0.1c0.1-0.1,0.2-0.1,0.3-0.2
+	c0,0,0.1,0,0.1-0.1c0,0,0,0,0,0l27.9-25L91,48.2V79H9z M45,47c5.5,0,10-4.5,10-10s-4.5-10-10-10s-10,4.5-10,10S39.5,47,45,47z
+	 M45,31c3.3,0,6,2.7,6,6s-2.7,6-6,6s-6-2.7-6-6S41.7,31,45,31z"/>
+</svg>
+`
+
 export default function InternalFeed({ route, navigation }) {
     const item = route.params.item.item
     const category = route.params.category
@@ -32,14 +50,30 @@ export default function InternalFeed({ route, navigation }) {
     const height = width * 0.6
 
     const [ isFavorite, setIsFavorite ] = React.useState(false)
+    const [ isImageLoaded, setIsImageLoaded ] = React.useState(false)
     
     const Arrow = () => <SvgXml width='24' height='14' xml={arrow} />
     const Star = () => <SvgXml width='26' height='26' xml={isFavorite ? yellowStar : star} />
+    const ImageIcon = () => <SvgXml width="60" height="60" xml={imageIcon} />
 
     return (
         <>
         <View>
-            <Image style={{ width, height }} source={{uri: item.galery[0]}} />
+            <Image
+                style={{ width, height }}
+                source={{uri: item.galery[0]}} 
+                onLoad={() => setIsImageLoaded(true)}
+            />
+
+            {
+                !isImageLoaded && 
+                (
+                    <View style={{ position: 'absolute', width, height }}>
+                        <ImageIcon />
+                    </View>
+                )
+            }
+
             <View style={{ position: 'absolute', height, width, backgroundColor: 'rgba(0, 0, 0, 0.29)' }}>
                 <TouchableOpacity
                     style={{ position: 'absolute', left: 15, top: 15 }}
